@@ -1,5 +1,6 @@
-import env from '@/env.js'
 import { pinoLogger } from 'hono-pino'
+
+import env from '@/env.js'
 
 const { NODE_ENV, LOG_LEVEL } = env
 

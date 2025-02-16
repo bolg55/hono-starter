@@ -1,5 +1,6 @@
 import type { ErrorHandler } from 'hono'
 import type { ContentfulStatusCode } from 'hono/utils/http-status'
+
 import env from '@/env.js'
 import { INTERNAL_SERVER_ERROR, OK } from '@/lib/http-status-codes.js'
 

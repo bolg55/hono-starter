@@ -1,5 +1,6 @@
 import type { NotFoundHandler } from 'hono'
 import type { ContentfulStatusCode } from 'hono/utils/http-status'
+
 import { NOT_FOUND } from '@/lib/http-status-codes.js'
 import { NOT_FOUND as NOT_FOUND_MESSAGE } from '@/lib/http-status-phrases.js'
 
