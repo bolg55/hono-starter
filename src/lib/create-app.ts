@@ -7,10 +7,14 @@ import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon.js'
 
 import type { AppBindings } from './types.js'
 
+export function createRouter(){
+return new OpenAPIHono<AppBindings>({
+  strict: false,
+})
+}
+
 export default function createApp() {
-  const app = new OpenAPIHono<AppBindings>({
-    strict: false,
-  })
+  const app = createRouter()
 
   app.use(serveEmojiFavicon('🔥'))
   app.use(logger())

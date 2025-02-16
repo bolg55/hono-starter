@@ -14,6 +14,9 @@ importers:
       '@hono/zod-openapi':
         specifier: ^0.18.4
         version: 0.18.4(hono@4.7.1)(zod@3.24.2)
+      '@scalar/hono-api-reference':
+        specifier: ^0.5.173
+        version: 0.5.173(hono@4.7.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -414,6 +417,20 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@scalar/hono-api-reference@0.5.173':
+    resolution: {integrity: sha512-3d92BE7yBba0BXbt+ZWRjd66oSG7yhL04c5BxB8bgQY54bUsCcCAzMdZFt65JbB8zJ6ffWZNB+FZWkGR3KDmdg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      hono: ^4.0.0
+
+  '@scalar/openapi-types@0.1.7':
+    resolution: {integrity: sha512-oOTG3JQifg55U3DhKB7WdNIxFnJzbPJe7rqdyWdio977l8IkxQTVmObftJhdNIMvhV2K+1f/bDoMQGu6yTaD0A==}
+    engines: {node: '>=18'}
+
+  '@scalar/types@0.0.32':
+    resolution: {integrity: sha512-WHMkFQw4cu1mrG4pEiTUXVBBs205kHECdLM/5F7ATI0A7Axv6G1GgofkwbyCAayUjNk82uaCXzSOgPojbq4iGQ==}
+    engines: {node: '>=18'}
+
   '@stylistic/eslint-plugin@4.0.0-beta.1':
     resolution: {integrity: sha512-QjXLdE0K6NWxCj3G6588UCxWRbZ7wW/shInTC0iruog4qfvlhWhW67+6GZvBHs3qK53ucoI03fyM8I+hg2i7Dg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -496,6 +513,9 @@ packages:
   '@typescript-eslint/visitor-keys@8.24.0':
     resolution: {integrity: sha512-kArLq83QxGLbuHrTMoOEWO+l2MwsNS2TGISEdx8xgqpkbytB07XmlQyQdNDrCc1ecSqx0cnmhGvpX+VBwqqSkg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@unhead/schema@1.11.19':
+    resolution: {integrity: sha512-7VhYHWK7xHgljdv+C01MepCSYZO2v6OhgsfKWPxRQBDDGfUKCUaChox0XMq3tFvXP6u4zSp6yzcDw2yxCfVMwg==}
 
   '@vitest/eslint-plugin@1.1.31':
     resolution: {integrity: sha512-xlsLr+e+AXZ/00eVZCtNmMeCJoJaRCoLDiAgLcxgQjSS1EertieB2MUHf8xIqPKs9lECc/UpL+y1xDcpvi02hw==}
@@ -1053,6 +1073,9 @@ packages:
   hono@4.7.1:
     resolution: {integrity: sha512-V3eWoPkBxoNgFCkSc5Y5rpLF6YoQQx1pkYO4qrF6YfOw8RZbujUNlJLZCxh0z9gZct70+je2Ih7Zrdpv21hP9w==}
     engines: {node: '>=16.9.0'}
+
+  hookable@5.5.3:
+    resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
 
   hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -1765,6 +1788,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
+  zhead@2.2.4:
+    resolution: {integrity: sha512-8F0OI5dpWIA5IGG5NHUg9staDwz/ZPxZtvGVf01j7vHqSyZ0raHY+78atOVxRqb73AotX22uV1pXt3gYSstGag==}
+
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
@@ -2065,6 +2091,18 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
+  '@scalar/hono-api-reference@0.5.173(hono@4.7.1)':
+    dependencies:
+      '@scalar/types': 0.0.32
+      hono: 4.7.1
+
+  '@scalar/openapi-types@0.1.7': {}
+
+  '@scalar/types@0.0.32':
+    dependencies:
+      '@scalar/openapi-types': 0.1.7
+      '@unhead/schema': 1.11.19
+
   '@stylistic/eslint-plugin@4.0.0-beta.1(eslint@9.20.1)(typescript@5.7.3)':
     dependencies:
       '@typescript-eslint/utils': 8.24.0(eslint@9.20.1)(typescript@5.7.3)
@@ -2182,6 +2220,11 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.24.0
       eslint-visitor-keys: 4.2.0
+
+  '@unhead/schema@1.11.19':
+    dependencies:
+      hookable: 5.5.3
+      zhead: 2.2.4
 
   '@vitest/eslint-plugin@1.1.31(@typescript-eslint/utils@8.24.0(eslint@9.20.1)(typescript@5.7.3))(eslint@9.20.1)(typescript@5.7.3)':
     dependencies:
@@ -2815,6 +2858,8 @@ snapshots:
       pino: 9.6.0
 
   hono@4.7.1: {}
+
+  hookable@5.5.3: {}
 
   hosted-git-info@2.8.9: {}
 
@@ -3668,6 +3713,8 @@ snapshots:
       yargs-parser: 21.1.1
 
   yocto-queue@0.1.0: {}
+
+  zhead@2.2.4: {}
 
   zod@3.24.2: {}
 
