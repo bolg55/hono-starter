@@ -5,6 +5,7 @@ import { OpenAPIHono } from '@hono/zod-openapi'
 import notFound from './middlewares/not-found.js'
 import onError from './middlewares/on-error.js'
 import { logger } from './middlewares/pino-logger.js'
+import serveEmojiFavicon from './middlewares/serve-emoji-favicon.js'
 
 interface AppBindings {
   Variables: {
@@ -14,6 +15,7 @@ interface AppBindings {
 
 const app = new OpenAPIHono<AppBindings>()
 
+app.use(serveEmojiFavicon('🔥'))
 app.use(logger())
 
 app.get('/', (c) => {
