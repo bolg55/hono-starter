@@ -3,11 +3,11 @@
     "target": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "resolveJsonModule": true,
     "module": "NodeNext",
     "paths": {
       "@/*": ["./src/*"]
     },
+    "resolveJsonModule": true,
     "types": [
       "node"
     ],

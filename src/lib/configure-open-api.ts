@@ -1,6 +1,8 @@
-import type { AppOpenApi } from './types.js'
-import packageJSON from '../../package.json' assert { type: 'json' }
 import { apiReference } from '@scalar/hono-api-reference'
+
+import type { AppOpenApi } from './types.js'
+
+import packageJSON from '../../package.json' assert { type: 'json' }
 
 export default function configureOpenApi(app: AppOpenApi) {
   app.doc('/doc', {
@@ -16,16 +18,16 @@ export default function configureOpenApi(app: AppOpenApi) {
   app.get(
     '/api-docs',
     apiReference({
-      pageTitle:'Hono API Reference',
-      theme:'kepler',
-      hideDownloadButton:true,
-      defaultHttpClient:{
-        targetKey:'js',
-        clientKey:'fetch'
+      pageTitle: 'Hono API Reference',
+      theme: 'kepler',
+      hideDownloadButton: true,
+      defaultHttpClient: {
+        targetKey: 'js',
+        clientKey: 'fetch',
       },
-      spec:{
-        url:'/doc'
-      }
-    })
+      spec: {
+        url: '/doc',
+      },
+    }),
   )
 }
