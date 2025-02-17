@@ -21,6 +21,7 @@ export default function configureOpenApi(app: AppOpenApi) {
       pageTitle: 'Hono API Reference',
       theme: 'kepler',
       hideDownloadButton: true,
+      layout: 'classic',
       defaultHttpClient: {
         targetKey: 'js',
         clientKey: 'fetch',
