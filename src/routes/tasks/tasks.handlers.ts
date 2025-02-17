@@ -2,6 +2,10 @@ import type { AppRouteHandler } from '@/lib/types.js'
 
 import type { ListRoute } from './tasks.routes.js'
 
-export const list: AppRouteHandler<ListRoute> = (c) => {
-  return c.json([{ name: 'Task 1', done: false }])
+import { getTasks } from './tasks.services.js'
+
+export const list: AppRouteHandler<ListRoute> = async (c) => {
+  const tasks = await getTasks()
+
+  return c.json(tasks)
 }

@@ -3,7 +3,7 @@ import { drizzle } from 'drizzle-orm/libsql'
 
 import env from '@/env.js'
 
-import * as schema from './schema.js'
+import * as schema from './schema/index.js'
 
 const { DATABASE_URL, DATABASE_AUTH_TOKEN } = env
 
