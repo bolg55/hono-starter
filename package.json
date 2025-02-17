@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "lint": "eslint .",
-    "lint:fix": "pnpm run lint --fix"
+    "lint:fix": "pnpm run lint --fix",
+    "db:generate": "NODE_OPTIONS='--import tsx' drizzle-kit generate"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.0",
