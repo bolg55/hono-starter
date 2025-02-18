@@ -4,6 +4,7 @@ import { insertTasksSchema, selectTasksSchema } from '@/db/schema/tasks.schema.j
 import * as HttpStatusCodes from '@/lib/http-status-codes.js'
 import jsonContentRequired from '@/openapi/helpers/json-content-required.js'
 import jsonContent from '@/openapi/helpers/json-content.js'
+import createErrorSchema from '@/openapi/schemas/create-error-schema.js'
 
 const tags = ['Tasks']
 
@@ -25,7 +26,7 @@ export const create = createRoute({
   request: { body: jsonContentRequired(insertTasksSchema, 'The task to create') },
   responses: {
     [HttpStatusCodes.OK]: jsonContent(selectTasksSchema, 'The created task'),
-
+    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(createErrorSchema(insertTasksSchema), 'The validation error(s)'),
   },
 
 })
