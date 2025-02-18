@@ -16,6 +16,7 @@ export const tasks = sqliteTable('tasks', {
 })
 
 export type InsertTask = z.infer<typeof insertTasksSchema>
+export type PatchTask = z.infer<typeof patchTasksSchema>
 
 export const selectTasksSchema = createSelectSchema(tasks)
 
@@ -24,3 +25,5 @@ export const insertTasksSchema = createInsertSchema(tasks, {
 })
   .required({ done: true })
   .omit({ id: true, createdAt: true, updatedAt: true })
+
+export const patchTasksSchema = insertTasksSchema.partial()
