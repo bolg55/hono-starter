@@ -35,3 +35,11 @@ export async function updateTask(id: number, updates: PatchTask) {
 
   return task
 }
+
+export async function deleteTaskById(id: number) {
+  const deleted = await db.delete(tasks)
+    .where(eq(tasks.id, id))
+    .returning()
+
+  return deleted[0] || null
+}

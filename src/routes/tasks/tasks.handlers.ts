@@ -3,9 +3,9 @@ import type { AppRouteHandler } from '@/lib/types.js'
 import * as HttpStatusCodes from '@/lib/http-status-codes.js'
 import * as HttpStatusPhrases from '@/lib/http-status-phrases.js'
 
-import type { CreateRoute, GetOneRoute, ListRoute, PatchRoute } from './tasks.routes.js'
+import type { CreateRoute, DeleteRoute, GetOneRoute, ListRoute, PatchRoute } from './tasks.routes.js'
 
-import { createTask, getTaskById, getTasks, updateTask } from './tasks.services.js'
+import { createTask, deleteTaskById, getTaskById, getTasks, updateTask } from './tasks.services.js'
 
 export const list: AppRouteHandler<ListRoute> = async (c) => {
   const tasks = await getTasks()
@@ -41,4 +41,15 @@ export const patch: AppRouteHandler<PatchRoute> = async (c) => {
   }
 
   return c.json(task, HttpStatusCodes.OK)
+}
+
+export const deleteTask: AppRouteHandler<DeleteRoute> = async (c) => {
+  const { id } = c.req.valid('param')
+  const task = await deleteTaskById(id)
+
+  if (!task) {
+    return c.json({ message: HttpStatusPhrases.NOT_FOUND }, HttpStatusCodes.NOT_FOUND)
+  }
+
+  return c.body(null, { status: HttpStatusCodes.NO_CONTENT })
 }
