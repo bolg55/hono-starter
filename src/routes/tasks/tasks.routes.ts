@@ -1,7 +1,8 @@
 import { createRoute, z } from '@hono/zod-openapi'
 
-import { selectTasksSchema } from '@/db/schema/tasks.schema.js'
+import { insertTasksSchema, selectTasksSchema } from '@/db/schema/tasks.schema.js'
 import * as HttpStatusCodes from '@/lib/http-status-codes.js'
+import jsonContentRequired from '@/openapi/helpers/json-content-required.js'
 import jsonContent from '@/openapi/helpers/json-content.js'
 
 const tags = ['Tasks']
@@ -17,4 +18,17 @@ export const list = createRoute({
 
 })
 
+export const create = createRoute({
+  tags,
+  path: '/tasks',
+  method: 'post',
+  request: { body: jsonContentRequired(insertTasksSchema, 'The task to create') },
+  responses: {
+    [HttpStatusCodes.OK]: jsonContent(selectTasksSchema, 'The created task'),
+
+  },
+
+})
+
 export type ListRoute = typeof list
+export type CreateRoute = typeof create
