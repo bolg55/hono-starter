@@ -125,14 +125,16 @@ DATABASE_AUTH_TOKEN=your-token
 pnpm db:migrate
 ```
 
-> [!NOTE]
+> [!WARNING]
 > There's a known issue with Drizzle where imports with `.js` extensions in TypeScript projects can cause "Cannot find module" errors when running migrations. The `db:generate` script in this project already implements the necessary workaround:
 >
 > ```bash
 > NODE_OPTIONS='--import tsx' drizzle-kit generate
 > ```
 >
-> See [Drizzle GitHub issue #2705](https://github.com/drizzle-team/drizzle-orm/issues/2705) for more details. 7. Start the development server:
+> See [Drizzle GitHub issue #2705](https://github.com/drizzle-team/drizzle-orm/issues/2705) for more details.
+
+7. Start the development server:
 
 ```bash
 pnpm run dev
