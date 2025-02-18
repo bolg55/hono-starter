@@ -8,9 +8,9 @@ export default function configureOpenApi(app: AppOpenApi) {
   app.doc('/doc', {
     openapi: '3.0.0',
     info: {
-      title: 'Hono API Starter',
+      title: 'Hono API Starter Project',
       version: packageJSON.version,
-      description: 'My API description',
+      description: 'A starter project for building APIs with Hono',
     },
 
   })
@@ -18,7 +18,7 @@ export default function configureOpenApi(app: AppOpenApi) {
   app.get(
     '/api-docs',
     apiReference({
-      pageTitle: 'Hono API Reference',
+      operationsSorter: 'alpha',
       theme: 'kepler',
       hideDownloadButton: true,
       layout: 'classic',
